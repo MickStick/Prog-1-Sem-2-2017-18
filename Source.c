@@ -7,7 +7,7 @@ int main() {
     int count = 0, days[10], guestRoom[10], unavailRooms[10];
     char resContd = 'Y';
     const char *roomStat[10];
-    char fname[10][50], lname[10][50], roomNum[10][20];
+    char fname[10][50], lname[10][50];
     float total[10], tax = 0.15, grossTtl[10];
     roomStat[0] = "Smoking"; roomStat[1] = "Smoking"; roomStat[2] = "Non-Smoking"; roomStat[3] = "Non-Smoking"; roomStat[4] = "Smoking"; roomStat[5] = " Non-Smoking"; roomStat[6] = "Smoking"; roomStat[7] = "Non-Smoking"; roomStat[8] = "Non-Smoking"; roomStat[9] = "Non-Smoking";
     int x = 0;
