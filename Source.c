@@ -57,18 +57,25 @@ int main() {
                 for(x = 0; x < 10; x++){
                     if(roomStat[x] == "Smoking"){
                         int z = 0;
+                        int avail = 1;
                         for(z = 0; z < count + 1; z++){
-                            if(unavailRooms[z] != (x + 1)){
-                                guestRoom[count] = (x + 1);
-                                unavailRooms[count] = (x + 1);
+                            if(unavailRooms[z] == (x + 1)){
+                                avail = 0;
+                                break;
                             }
                         }
+
+                        if(avail){
+                            guestRoom[count] = (x + 1);
+                            unavailRooms[count] = (x + 1);
+                        }
+
                     }
                 }
 
                 if(guestRoom[count] != 'null'){
                     total[count] = 13000.0;
-                    printf("Room No.: %d Booked for %s\n\n", guestRoom[count], fname[count]);
+                    printf("\nRoom No.: %d Booked for %s\n\n", guestRoom[count], fname[count]);
                     break;
                 }else{
                     printf("\nNo More Smoking Rooms Are Available\n\n");
@@ -76,15 +83,25 @@ int main() {
             }else if(opt == 'B' || opt == 'b'){
                 int x = 0;
                 for(x = 0; x < 10; x++){
-                    if(roomStat[x] == "Non-Smoking" && unavailRooms[x] != (x + 1)){
-                        guestRoom[count] = (x + 1);
-                        unavailRooms[count] = (x + 1);
+                    if(roomStat[x] == "Non-Smoking"){
+                        int z = 0;
+                        int avail = 1;
+                        for(z = 0; z < count + 1; z++){
+                            if(unavailRooms[z] == (x + 1)){
+                                avail = 0;
+                                break;
+                            }
+                        }
+                        if(avail){
+                            guestRoom[count] = (x + 1);
+                            unavailRooms[count] = (x + 1);
+                        }
                     }
                 }
 
                 if(guestRoom[count] != 'null'){
                     total[count] = 10500.0;
-                    printf("Room No.: %d Booked for %s\n\n", guestRoom[count], fname[count]);
+                    printf("\nRoom No.: %d Booked for %s\n\n", guestRoom[count], fname[count]);
                     break;
                 }else{
                     printf("\nNo More Non-Smoking Rooms Are Available\n");
