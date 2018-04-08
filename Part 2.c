@@ -6,9 +6,11 @@
 int main() {
     int count = 0, days[10], guestRoom[50], dayAvg = 0, found = 0, total = 0, grossTotal = 0, taxTotal = 0, sRoomTotal = 0, nsRoomTotal = 0;
     char resContd = 'Y', menuOpt;
-    char fname[10][50], lname[10][50], roomStat[10][20];
+    char fname[10][50], lname[10][50], roomStat[10][20], pass[20];
+    char *PASS[20];
     float tax = 0.15;
-    int x = 0, ccNum[10], upccNum;
+    int x = 0, ccNum[10], upccNum, passCount = 0;
+    strcpy(PASS,"Password01");
     Sleep(1500);
     printf("\n\n\n\n\n");
     printf("\t\t\t\t*******************************************************\n");
@@ -22,6 +24,25 @@ int main() {
     printf("\t\t\t\t*******************************************************\n");
     Sleep(3000);
     system("cls");
+
+    while(1){
+      printf("\t\t\t\tPassword: ");
+        fflush(stdin);
+        gets(pass);
+        if(strcmp(pass,PASS) != 0){
+            passCount += 1;
+            printf("\t\t\t\t\nInvalid Password\n");
+            printf("\t\t\t\t%d try(s) left..\n", 3 - passCount);
+            system("cls");
+            if(passCount >= 3){
+                puts("\t\t\t\tNo More Tries Left!\n");
+                exit(0);
+            }
+        }else {
+            system("cls");
+            break;
+        }
+    }
 
     MENU:
     while(1) {
